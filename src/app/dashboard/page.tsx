@@ -1,16 +1,14 @@
-export default function Dashboard() {
+import { getOrganizations } from "@/app/utils/kinde.utils";
+
+export default async function Dashboard() {
+  const organizations = await getOrganizations();
   return (
     <div className="container">
       <div className="card start-hero">
-        <p className="text-body-2 start-hero-intro">Woohoo!</p>
-        <p className="text-display-2">
-          Your authentication is all sorted.
-          <br />
-          Build the important stuff.
-        </p>
+        <p className="text-display-2">Organizations</p>
       </div>
       <section className="next-steps-section">
-        <h2 className="text-heading-1">Next steps for you</h2>
+        <pre>{JSON.stringify(organizations, null, 2)}</pre>
       </section>
     </div>
   );
